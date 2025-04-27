@@ -1,9 +1,12 @@
 import { Stack } from "expo-router";
+import { Provider } from "react-redux";
+import { store } from "../store";
 import "./global.css"
 
 
 export default function RootLayout() {
-  return <Stack>
+  return <Provider store={store}>
+  <Stack>
     <Stack.Screen
       name="(tabs)"
       options={{
@@ -12,11 +15,12 @@ export default function RootLayout() {
       >
       </Stack.Screen>
       <Stack.Screen
-      name="/movie/[id]"
+      name="movies/[id]"
       options={{
         headerShown: false,
       }}
       >
       </Stack.Screen>
     </Stack>
+    </Provider>
 }
